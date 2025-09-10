@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----- Custom visuals ----- */
+:root {
+  --glass: rgba(255,255,255,0.12);
+  --glass-2: rgba(255,255,255,0.08);
+}
+
+/* Animated background shapes */
+.bg-blob {
+  filter: blur(48px);
+  opacity: 0.18;
+}
+
+/* small UI helpers */
+.btn-cta {
+  @apply px-6 py-3 rounded-xl font-semibold shadow-lg transform transition hover:-translate-y-0.5;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp { animation: fadeInUp 700ms cubic-bezier(.2,.9,.2,1) both; }
+.animate-fadeInUp.delay-200 { animation-delay: 200ms; }
+.animate-fadeInUp.delay-400 { animation-delay: 400ms; }
+
+/* subtle glass card */
+.card-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}

@@ -1,0 +1,77 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "EventSphere API",
+  "dateExported": "2025-09-09",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "name": "Signup (Student)",
+      "url": "http://localhost:5000/api/auth/signup",
+      "method": "POST",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Student One\",\n  \"email\": \"student1@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"student\"\n}"
+      }
+    },
+    {
+      "name": "Signup (Organizer)",
+      "url": "http://localhost:5000/api/auth/signup",
+      "method": "POST",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Organizer One\",\n  \"email\": \"org1@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"organizer\"\n}"
+      }
+    },
+    {
+      "name": "Login",
+      "url": "http://localhost:5000/api/auth/login",
+      "method": "POST",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"org1@example.com\",\n  \"password\": \"password123\"\n}"
+      }
+    },
+    {
+      "name": "Create Event (Organizer)",
+      "url": "http://localhost:5000/api/events",
+      "method": "POST",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{token}}" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Tech Talk on AI\",\n  \"description\": \"An amazing AI event.\",\n  \"date\": \"2025-10-01T10:00:00.000Z\",\n  \"category\": \"tech\"\n}"
+      }
+    },
+    {
+      "name": "Get All Events",
+      "url": "http://localhost:5000/api/events",
+      "method": "GET",
+      "headers": []
+    },
+    {
+      "name": "Register for Event (Student)",
+      "url": "http://localhost:5000/api/events/{{eventId}}/register",
+      "method": "POST",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{token}}" }
+      ],
+      "body": { "type": "json", "raw": "{}" }
+    }
+  ],
+  "variables": [
+    { "name": "token", "value": "" },
+    { "name": "eventId", "value": "" }
+  ]
+}
